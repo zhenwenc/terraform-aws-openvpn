@@ -6,7 +6,7 @@ Terraform module which creates OpenVPN resources on AWS.
 
 ``` hcl
 module "vpn" {
-  source = "zhenwenc/aws-openvpn"
+  source = "zhenwenc/openvpn/aws"
 
   availability_zone     = "${data.aws_availability_zones.this.names[0]}"
   instance_profile_name = "${module.iam.ecs_instance_profile_name}"
