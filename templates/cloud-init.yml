@@ -1,0 +1,8 @@
+#cloud-config
+write_files:
+
+  - content: ${base64encode(openvpn)}
+    encoding: b64
+    owner: root:root
+    path: /usr/bin/openvpn
+    permissions: '0750'

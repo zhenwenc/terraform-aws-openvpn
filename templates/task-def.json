@@ -1,0 +1,37 @@
+[
+  {
+    "name": "openvpn",
+    "image": "kylemanna/openvpn",
+    "essential": true,
+    "privileged": true,
+    "capabilities": {
+      "add": ["NET_ADMIN"]
+    },
+    "environment": [
+      {
+        "name": "FORCE_RESTART_CONTAINER",
+        "value": "${hash}"
+      }
+    ],
+    "portMappings": [
+      {
+        "hostPort": 1194,
+        "containerPort": 1194,
+        "protocol": "udp"
+      }
+    ],
+    "mountPoints": [
+      {
+        "sourceVolume": "openvpn-data",
+        "containerPath": "/etc/openvpn"
+      },
+      {
+        "sourceVolume": "openvpn-conf",
+        "containerPath": "/opt/openvpn"
+      }
+    ],
+    "command": ["ovpn_run", "--config", "/opt/openvpn/openvpn.conf"],
+    "cpu": 0,
+    "memoryReservation": 32
+  }
+]
