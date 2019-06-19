@@ -15,7 +15,7 @@ module "vpn" {
   ovpn_company          = "Example Co."
   ovpn_email            = "support@example.com"
   ovpn_domain           = "vpn.example.com"
-  ovpn_clients          = ["fred@vpn.example.com"]
+  ovpn_clients          = ["master@vpn.example.com"]
 }
 
 resource "aws_ebs_volume" "vpn" {
