@@ -60,7 +60,7 @@ resource "null_resource" "openvpn_clients" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo openvpn load-clients",
+      "sudo /usr/bin/openvpn load-clients",
     ]
 
     connection {
