@@ -7,7 +7,7 @@ provider "docker" {
 }
 
 module "ovpn" {
-  source = "../../docker/"
+  source = "../../modules/docker/"
 
 
   ovpn_company = "Example"

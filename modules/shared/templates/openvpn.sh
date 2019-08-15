@@ -48,16 +48,6 @@ build-server() {
 
     # Generate private key pair for OpenVPN
     # https://github.com/OpenVPN/easy-rsa/blob/master/easyrsa3/easyrsa
-    export EASYRSA_BATCH=true
-    export EASYRSA_REQ_COUNTRY="${country}"
-    export EASYRSA_REQ_PROVINCE="${province}"
-    export EASYRSA_REQ_CITY="${city}"
-    export EASYRSA_REQ_ORG="${company}"
-    export EASYRSA_REQ_EMAIL="${email}"
-    export EASYRSA_REQ_OU="${section}"
-    export EASYRSA_REQ_CN="${domain}"
-    export EASYRSA_KEY_SIZE=1024
-
     ovpn_initpki nopass
 }
 
@@ -149,6 +139,16 @@ $(cat $EASYRSA_PKI/ta.key)
 }
 
 #============================================================
+
+export EASYRSA_BATCH=true
+export EASYRSA_REQ_COUNTRY="${country}"
+export EASYRSA_REQ_PROVINCE="${province}"
+export EASYRSA_REQ_CITY="${city}"
+export EASYRSA_REQ_ORG="${company}"
+export EASYRSA_REQ_EMAIL="${email}"
+export EASYRSA_REQ_OU="${section}"
+export EASYRSA_REQ_CN="${domain}"
+export EASYRSA_KEY_SIZE=1024
 
 if declare -f "$1" > /dev/null ; then
     "$@"
