@@ -95,6 +95,9 @@ variable "ovpn_dev" {
   default = "tun0"
 }
 
+# ----------------------------------------------------------------
+# Registered Clients
+
 variable "ovpn_clients" {
   description = "List of client names to be created."
   type        = "list"

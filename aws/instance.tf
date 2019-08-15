@@ -109,20 +109,3 @@ data "template_file" "user_data" {
     ebs_volume     = "/dev/xvdf"
   }
 }
-
-data "template_file" "openvpn_script" {
-  template = "${file("${path.module}/templates/openvpn.sh")}"
-
-  vars {
-    country     = "${var.ovpn_country}"
-    province    = "${var.ovpn_province}"
-    city        = "${var.ovpn_city}"
-    company     = "${var.ovpn_company}"
-    section     = "${var.ovpn_section}"
-    email       = "${var.ovpn_email}"
-    domain      = "${var.ovpn_domain}"
-    volume      = "${var.ecs_volume_data}"
-    client_conf = "${var.ecs_volume_conf}/client.ovpn"
-    clients_txt = "${var.ecs_volume_conf}/clients.txt"
-  }
-}
