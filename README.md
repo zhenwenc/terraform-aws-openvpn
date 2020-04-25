@@ -2,7 +2,7 @@
 
 Terraform module which creates OpenVPN resources on AWS.
 
-# Usage
+## Use With AWS ECS
 
 ``` hcl
 module "vpn" {
@@ -28,6 +28,16 @@ resource "aws_ebs_volume" "vpn" {
 data "aws_availability_zones" "this" {
   state = "available"
 }
+```
+
+## Use With Docker
+
+TBC
+
+### Get Client Configuration File
+
+``` sh
+ssh <host> 'docker exec openvpn /opt/openvpn/openvpn.sh get-client <client>'
 ```
 
 ## License
