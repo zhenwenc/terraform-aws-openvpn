@@ -9,6 +9,8 @@ provider "docker" {
 module "ovpn" {
   source = "../../modules/docker/"
 
+  # For remote usage
+  # source = "<terraform-aws-openvpn.git>//modules/docker?ref=monorepo"
 
   ovpn_company = "Example"
   ovpn_email   = "support@example.com"

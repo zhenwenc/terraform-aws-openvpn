@@ -92,6 +92,18 @@ resource "null_resource" "openvpn_conf" {
       user = "${var.remote_user}"
     }
   }
+
+  provisioner "remote-exec" {
+    inline = [
+      "docker exec openvpn /opt/openvpn/openvpn.sh load-clients",
+    ]
+
+    connection {
+      type = "ssh"
+      host = "${var.remote_host}"
+      user = "${var.remote_user}"
+    }
+  }
 }
 
 resource "docker_container" "openvpn" {
